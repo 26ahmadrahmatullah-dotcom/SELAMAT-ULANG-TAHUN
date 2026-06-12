@@ -1,8 +1,13 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday Syamsidar</title><script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script><style>
+<title>Happy Birthday Syamsidar</title>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
+<style>
 *{
 margin:0;
 padding:0;
@@ -12,11 +17,12 @@ font-family:Arial,sans-serif;
 
 body{
 background:linear-gradient(135deg,#0f172a,#1e293b,#334155);
-display:block;
 min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
 padding:20px;
 color:white;
-overflow:auto;
 }
 
 .card{
@@ -27,7 +33,11 @@ backdrop-filter:blur(12px);
 padding:30px;
 border-radius:25px;
 text-align:center;
-box-shadow:0 0 30px rgba(255,255,255,0.15);
+box-shadow:0 0 30px rgba(255,255,255,.15);
+}
+
+.hidden{
+display:none;
 }
 
 .photo{
@@ -37,12 +47,12 @@ object-fit:cover;
 border-radius:50%;
 border:5px solid white;
 box-shadow:0 0 20px rgba(255,255,255,.4);
+margin-bottom:15px;
 }
 
 h1{
-margin-top:20px;
 font-size:2.2rem;
-animation:glow 2s infinite alternate;
+margin-bottom:10px;
 }
 
 h2{
@@ -66,31 +76,72 @@ font-size:16px;
 cursor:pointer;
 }
 
-@keyframes glow{
-from{
-text-shadow:0 0 10px #fff;
+button:hover{
+transform:scale(1.05);
 }
-to{
-text-shadow:0 0 30px #ff8cc8;
-}
-}
-</style></head><body><div class="card"><img src="file_00000000a11471fa8f7d4446911a8400.jpg" class="photo"><h1>🎂 Happy Birthday 🎂</h1><h2>SYAMSIDAR</h2><p>
-Selamat ulang tahun, Syamsidar ✨<br><br>Semoga Allah selalu memberikan kesehatan,
-kebahagiaan, umur yang berkah, dan rezeki yang melimpah.
+</style>
+
+</head>
+<body>
+
+<!-- HALAMAN PERTAMA -->
+<div class="card" id="page1">
+
+<h1>🎂 Happy Birthday 🎂</h1>
+
+<h2>SYAMSIDAR</h2>
+
+<p>
+Hari ini ada sesuatu yang spesial untukmu ✨
+</p>
+
+<button onclick="showSurprise()">
+🎉 Klik Kejutan
+</button>
+
+</div>
+
+<!-- HALAMAN KEDUA -->
+<div class="card hidden" id="page2">
+
+<img src="file_00000000a11471fa8f7d4446911a8400.jpg" class="photo">
+
+<h1>🎉 Selamat Ulang Tahun 🎉</h1>
+
+<h2>SYAMSIDAR</h2>
+
+<p>
+Selamat ulang tahun, Syamsidar ✨
+<br><br>
+
+Semoga Allah selalu memberikan kesehatan,
+kebahagiaan, umur yang berkah,
+dan rezeki yang melimpah.
+
+<br><br>
 
 Semoga semua impian dan harapan yang sedang diperjuangkan
 dapat terwujud satu per satu.
 
+<br><br>
+
 Terima kasih telah menjadi pribadi yang baik,
 kuat, dan selalu membawa kebahagiaan bagi orang-orang di sekitarmu. 💖
+</p>
 
-</p><button onclick="celebrate()">
-🎉 Klik Kejutan
-</button><audio id="musik" loop>
+<audio id="musik" loop>
 <source src="8cf90f3e3bf148bcd5823a883453d1a4.mp3" type="audio/mpeg">
-</audio></div><script>
+</audio>
 
-function celebrate(){
+</div>
+
+<script>
+
+function showSurprise(){
+
+document.getElementById("page1").classList.add("hidden");
+document.getElementById("page2").classList.remove("hidden");
+
 document.getElementById("musik").play();
 
 confetti({
@@ -98,28 +149,10 @@ particleCount:300,
 spread:180,
 origin:{y:0.6}
 });
+
 }
 
-window.onload=function(){
+</script>
 
-confetti({
-particleCount:500,
-spread:360,
-origin:{y:0.5}
-});
-
-setInterval(function(){
-confetti({
-particleCount:50,
-spread:100,
-origin:{
-x:Math.random(),
-y:Math.random()-0.2
-}
-});
-},3000);
-
-};
-
-</script></body>
+</body>
 </html>
